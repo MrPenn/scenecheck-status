@@ -176,3 +176,29 @@ status-website:
       border-color: rgba(124, 106, 247, 0.6) !important;
       outline: none !important;
     }
+
+    /* Hide repo link in footer — security, no value exposing config */
+    footer a[href*="github.com/MrPenn"] {
+      display: none !important;
+    }
+  js: |
+    // Replace "powered by" footer link with plain text
+    document.addEventListener('DOMContentLoaded', function() {
+      var footerLinks = document.querySelectorAll('footer a');
+      footerLinks.forEach(function(link) {
+        if (link.href && link.href.includes('github.com/MrPenn')) {
+          link.replaceWith(document.createTextNode(''));
+        }
+        if (link.href && link.href.includes('github.com/upptime')) {
+          link.replaceWith(document.createTextNode('Upptime'));
+        }
+      });
+      // Add custom footer text
+      var footer = document.querySelector('footer');
+      if (footer) {
+        var existing = footer.innerHTML;
+        if (!existing.includes('open source')) {
+          footer.innerHTML = '<p style="color: rgba(226,220,208,0.4); font-size: 13px; font-family: DM Sans, sans-serif;">This page is open source, powered by Upptime</p>';
+        }
+      }
+    });
