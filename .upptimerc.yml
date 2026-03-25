@@ -40,9 +40,6 @@ status-website:
       --brand-gold: #a89882;
       --brand-purple: #7c6af7;
       --brand-purple-hover: #6b59e6;
-      --brand-green: #3dba78;
-      --brand-red: #d95555;
-      --brand-yellow: #d49838;
       --brand-border: rgba(226, 220, 208, 0.1);
       --brand-border-subtle: rgba(226, 220, 208, 0.06);
       --brand-text-secondary: rgba(226, 220, 208, 0.6);
@@ -59,23 +56,20 @@ status-website:
     nav, .navbar, header {
       background: var(--brand-bg) !important;
       border-bottom: 1px solid var(--brand-border) !important;
-      backdrop-filter: blur(12px);
     }
 
     nav a, .navbar a, header a {
       color: var(--brand-cream) !important;
       font-family: 'DM Sans', sans-serif !important;
       font-weight: 500 !important;
-      letter-spacing: 0.3px;
-      transition: color 0.15s ease;
     }
 
     nav a:hover, .navbar a:hover, header a:hover {
       color: var(--brand-purple) !important;
     }
 
-    /* Site title */
-    .site-name, h1 {
+    /* Headings */
+    h1 {
       font-family: 'Outfit', sans-serif !important;
       font-weight: 700 !important;
       color: var(--brand-cream) !important;
@@ -88,57 +82,26 @@ status-website:
       color: var(--brand-cream) !important;
     }
 
-    /* Cards and containers */
-    .card, article, section, .incident, .incidents {
-      background: var(--brand-bg-elevated) !important;
-      border: 1px solid var(--brand-border) !important;
-      border-radius: 16px !important;
+    /* Page wrapper */
+    main, .main, #sapper, .container {
+      background: var(--brand-bg-deep) !important;
     }
 
-    /* Status indicators */
-    .status-up, .up, [class*="up"] {
-      color: var(--brand-green) !important;
-    }
-
-    .status-down, .down, [class*="down"] {
-      color: var(--brand-red) !important;
-    }
-
-    .status-degraded, .degraded, [class*="degraded"] {
-      color: var(--brand-yellow) !important;
-    }
-
-    /* Links */
-    a {
+    /* Links — but not inside graphs/images */
+    a:not(img):not(svg *) {
       color: var(--brand-purple) !important;
-      transition: color 0.15s ease;
     }
 
-    a:hover {
+    a:not(img):not(svg *):hover {
       color: var(--brand-purple-hover) !important;
     }
 
-    /* Buttons */
-    button, .button, [role="button"] {
-      background: var(--brand-purple) !important;
-      color: #fff !important;
-      border: none !important;
-      border-radius: 12px !important;
-      font-family: 'DM Sans', sans-serif !important;
-      font-weight: 600 !important;
-      transition: background 0.15s ease;
-    }
-
-    button:hover, .button:hover, [role="button"]:hover {
-      background: var(--brand-purple-hover) !important;
+    /* Navbar links stay cream */
+    nav a, .navbar a, header a {
+      color: var(--brand-cream) !important;
     }
 
     /* Tables */
-    table {
-      border-collapse: separate !important;
-      border-spacing: 0 !important;
-    }
-
     th {
       background: var(--brand-bg) !important;
       color: var(--brand-gold) !important;
@@ -160,21 +123,10 @@ status-website:
       background: rgba(226, 220, 208, 0.04) !important;
     }
 
-    /* Monospace elements */
-    code, pre, .mono {
+    /* Monospace elements — not inside SVGs */
+    code, pre {
       font-family: 'JetBrains Mono', monospace !important;
       color: var(--brand-gold) !important;
-    }
-
-    /* Response time badges */
-    .response-time, [class*="response"] {
-      font-family: 'JetBrains Mono', monospace !important;
-      font-size: 13px !important;
-    }
-
-    /* Uptime percentage */
-    .uptime, [class*="uptime"] {
-      font-family: 'JetBrains Mono', monospace !important;
     }
 
     /* Footer */
@@ -188,11 +140,6 @@ status-website:
       color: var(--brand-text-secondary) !important;
     }
 
-    /* Graph containers */
-    .graph, [class*="graph"], svg {
-      border-radius: 12px !important;
-    }
-
     /* Incident timeline */
     .incident-title {
       font-family: 'Outfit', sans-serif !important;
@@ -204,34 +151,17 @@ status-website:
       font-family: 'DM Sans', sans-serif !important;
     }
 
-    /* Selection color */
+    /* Selection */
     ::selection {
       background: rgba(124, 106, 247, 0.3);
       color: var(--brand-cream);
     }
 
     /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--brand-bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(226, 220, 208, 0.15);
-      border-radius: 3px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(226, 220, 208, 0.25);
-    }
-
-    /* Overall page wrapper */
-    main, .main, #sapper, .container {
-      background: var(--brand-bg-deep) !important;
-    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--brand-bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(226, 220, 208, 0.15); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(226, 220, 208, 0.25); }
 
     /* Input fields */
     input, select, textarea {
@@ -245,21 +175,4 @@ status-website:
     input:focus, select:focus, textarea:focus {
       border-color: rgba(124, 106, 247, 0.6) !important;
       outline: none !important;
-    }
-
-    /* Badges / pills */
-    .badge, [class*="badge"], .tag, [class*="tag"] {
-      border-radius: 999px !important;
-      font-family: 'JetBrains Mono', monospace !important;
-      font-size: 10px !important;
-      font-weight: 400 !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.5px !important;
-    }
-
-    /* Smooth transitions */
-    *, *::before, *::after {
-      transition-property: background-color, border-color, color;
-      transition-duration: 0.15s;
-      transition-timing-function: ease;
     }
