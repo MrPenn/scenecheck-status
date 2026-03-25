@@ -32,6 +32,7 @@ status-website:
   css: |
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap');
 
+    /* ── Brand tokens ─────────────────────────────────── */
     :root {
       --brand-bg-deep: #0a0908;
       --brand-bg: #141210;
@@ -46,29 +47,18 @@ status-website:
       --brand-text-muted: rgba(226, 220, 208, 0.4);
     }
 
+    /* ── Base ──────────────────────────────────────────── */
     body, html {
       background: var(--brand-bg-deep) !important;
       color: var(--brand-cream) !important;
       font-family: 'DM Sans', -apple-system, sans-serif !important;
     }
 
-    /* Navbar */
-    nav, .navbar, header {
-      background: var(--brand-bg) !important;
-      border-bottom: 1px solid var(--brand-border) !important;
+    main, #sapper {
+      background: var(--brand-bg-deep) !important;
     }
 
-    nav a, .navbar a, header a {
-      color: var(--brand-cream) !important;
-      font-family: 'DM Sans', sans-serif !important;
-      font-weight: 500 !important;
-    }
-
-    nav a:hover, .navbar a:hover, header a:hover {
-      color: var(--brand-purple) !important;
-    }
-
-    /* Headings */
+    /* ── Typography ───────────────────────────────────── */
     h1 {
       font-family: 'Outfit', sans-serif !important;
       font-weight: 700 !important;
@@ -82,26 +72,86 @@ status-website:
       color: var(--brand-cream) !important;
     }
 
-    /* Page wrapper */
-    main, .main, #sapper, .container {
-      background: var(--brand-bg-deep) !important;
+    p, span, div {
+      color: var(--brand-cream);
     }
 
-    /* Links — but not inside graphs/images */
-    a:not(img):not(svg *) {
+    /* ── Navbar ────────────────────────────────────────── */
+    nav {
+      background: var(--brand-bg) !important;
+      border-bottom: 1px solid var(--brand-border) !important;
+    }
+
+    nav a {
+      color: var(--brand-cream) !important;
+      font-family: 'DM Sans', sans-serif !important;
+      font-weight: 500 !important;
+    }
+
+    nav a:hover {
       color: var(--brand-purple) !important;
     }
 
-    a:not(img):not(svg *):hover {
+    /* ── Status cards (article.up / article.down / article.degraded) ── */
+    article.up {
+      background: var(--brand-bg-elevated) !important;
+      border: 1px solid var(--brand-border) !important;
+      border-left: 3px solid var(--brand-purple) !important;
+      border-radius: 12px !important;
+    }
+
+    article.down {
+      background: var(--brand-bg-elevated) !important;
+      border: 1px solid rgba(217, 85, 85, 0.2) !important;
+      border-left: 3px solid #d95555 !important;
+      border-radius: 12px !important;
+    }
+
+    article.degraded {
+      background: var(--brand-bg-elevated) !important;
+      border: 1px solid rgba(212, 152, 56, 0.15) !important;
+      border-left: 3px solid #d49838 !important;
+      border-radius: 12px !important;
+    }
+
+    /* Service name links inside cards */
+    article.up a, article.down a, article.degraded a {
+      color: var(--brand-cream) !important;
+      font-family: 'Outfit', sans-serif !important;
+      font-weight: 600 !important;
+    }
+
+    article.up a:hover, article.down a:hover, article.degraded a:hover {
+      color: var(--brand-purple) !important;
+    }
+
+    /* ── "All systems operational" banner ──────────────── */
+    /* First article is the status banner, not a service card */
+    main > article.up:first-of-type {
+      background: rgba(124, 106, 247, 0.08) !important;
+      border: 1px solid rgba(124, 106, 247, 0.2) !important;
+      border-left: 3px solid var(--brand-purple) !important;
+      border-radius: 12px !important;
+    }
+
+    /* ── Graph page detail cards ──────────────────────── */
+    article.up.link.graph {
+      background: var(--brand-bg-elevated) !important;
+      border: 1px solid var(--brand-border) !important;
+      border-left: 3px solid var(--brand-purple) !important;
+      border-radius: 12px !important;
+    }
+
+    /* ── Links (not in nav, not in SVG) ───────────────── */
+    main a {
+      color: var(--brand-purple) !important;
+    }
+
+    main a:hover {
       color: var(--brand-purple-hover) !important;
     }
 
-    /* Navbar links stay cream */
-    nav a, .navbar a, header a {
-      color: var(--brand-cream) !important;
-    }
-
-    /* Tables */
+    /* ── Tables ────────────────────────────────────────── */
     th {
       background: var(--brand-bg) !important;
       color: var(--brand-gold) !important;
@@ -119,51 +169,46 @@ status-website:
       border-bottom: 1px solid var(--brand-border-subtle) !important;
     }
 
-    tr:hover td {
-      background: rgba(226, 220, 208, 0.04) !important;
-    }
-
-    /* Monospace elements — not inside SVGs */
+    /* ── Monospace ─────────────────────────────────────── */
     code, pre {
       font-family: 'JetBrains Mono', monospace !important;
       color: var(--brand-gold) !important;
     }
 
-    /* Footer */
+    /* ── Footer ────────────────────────────────────────── */
     footer {
       background: var(--brand-bg-deep) !important;
       border-top: 1px solid var(--brand-border) !important;
       color: var(--brand-text-muted) !important;
-    }
-
-    footer a {
-      color: var(--brand-text-secondary) !important;
-    }
-
-    /* Incident timeline */
-    .incident-title {
-      font-family: 'Outfit', sans-serif !important;
-      font-weight: 600 !important;
-    }
-
-    .incident-body, .incident-date {
-      color: var(--brand-text-secondary) !important;
       font-family: 'DM Sans', sans-serif !important;
+      font-size: 13px !important;
     }
 
-    /* Selection */
+    /* Hide repo link */
+    footer a[href*="github.com/MrPenn"],
+    footer a[href*="scenecheck-status"] {
+      font-size: 0 !important;
+      pointer-events: none !important;
+    }
+
+    footer a[href*="upptime"] {
+      color: var(--brand-text-muted) !important;
+      pointer-events: none !important;
+    }
+
+    /* ── Selection ─────────────────────────────────────── */
     ::selection {
       background: rgba(124, 106, 247, 0.3);
       color: var(--brand-cream);
     }
 
-    /* Scrollbar */
+    /* ── Scrollbar ─────────────────────────────────────── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--brand-bg); }
     ::-webkit-scrollbar-thumb { background: rgba(226, 220, 208, 0.15); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: rgba(226, 220, 208, 0.25); }
 
-    /* Input fields */
+    /* ── Inputs ────────────────────────────────────────── */
     input, select, textarea {
       background: rgba(226, 220, 208, 0.06) !important;
       border: 1px solid var(--brand-border) !important;
@@ -171,34 +216,16 @@ status-website:
       color: var(--brand-cream) !important;
       font-family: 'DM Sans', sans-serif !important;
     }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: rgba(124, 106, 247, 0.6) !important;
-      outline: none !important;
-    }
-
-    /* Hide repo link in footer — security, no value exposing config */
-    footer a[href*="github.com/MrPenn"] {
-      display: none !important;
-    }
   js: |
-    // Replace "powered by" footer link with plain text
-    document.addEventListener('DOMContentLoaded', function() {
-      var footerLinks = document.querySelectorAll('footer a');
-      footerLinks.forEach(function(link) {
-        if (link.href && link.href.includes('github.com/MrPenn')) {
-          link.replaceWith(document.createTextNode(''));
-        }
-        if (link.href && link.href.includes('github.com/upptime')) {
-          link.replaceWith(document.createTextNode('Upptime'));
-        }
-      });
-      // Add custom footer text
+    // Rewrite footer: remove repo link, keep "powered by Upptime" as plain text
+    function fixFooter() {
       var footer = document.querySelector('footer');
-      if (footer) {
-        var existing = footer.innerHTML;
-        if (!existing.includes('open source')) {
-          footer.innerHTML = '<p style="color: rgba(226,220,208,0.4); font-size: 13px; font-family: DM Sans, sans-serif;">This page is open source, powered by Upptime</p>';
-        }
-      }
-    });
+      if (!footer) return;
+      footer.innerHTML = '<p style="color:rgba(226,220,208,0.4);font-size:13px;font-family:DM Sans,sans-serif;text-align:center;padding:16px 0;margin:0;">This page is open source, powered by Upptime</p>';
+    }
+    // Run after Svelte hydration
+    if (document.readyState === 'complete') { fixFooter(); }
+    else { window.addEventListener('load', fixFooter); }
+    // Also run on a short delay for Sapper client-side navigation
+    setTimeout(fixFooter, 500);
+    setTimeout(fixFooter, 1500);
