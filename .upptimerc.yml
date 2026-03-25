@@ -20,8 +20,7 @@ sites:
       - 200
 
 status-website:
-  # cname: status.scenecheck.app  # uncomment after adding DNS CNAME record
-  baseUrl: /scenecheck-status
+  cname: status.scenecheck.app
   name: SceneCheck Status
   theme: light
   navbar:
