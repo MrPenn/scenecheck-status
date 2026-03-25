@@ -142,13 +142,41 @@ status-website:
       border-radius: 12px !important;
     }
 
-    /* ── Links (not in nav, not in SVG) ───────────────── */
+    /* ── Links (not in nav, not in headings) ─────────── */
     main a {
       color: var(--brand-purple) !important;
     }
 
     main a:hover {
       color: var(--brand-purple-hover) !important;
+    }
+
+    /* Heading links should be cream, not purple */
+    h1 a, h2 a, h3 a {
+      color: var(--brand-cream) !important;
+    }
+
+    h1 a:hover, h2 a:hover, h3 a:hover {
+      color: var(--brand-gold) !important;
+    }
+
+    /* ── Status badge (span.tag.up / .down / .degraded) ── */
+    span.tag.up {
+      background: rgba(124, 106, 247, 0.15) !important;
+      border: 1px solid rgba(124, 106, 247, 0.3) !important;
+      color: var(--brand-purple) !important;
+    }
+
+    span.tag.down {
+      background: rgba(217, 85, 85, 0.12) !important;
+      border: 1px solid rgba(217, 85, 85, 0.2) !important;
+      color: #d95555 !important;
+    }
+
+    span.tag.degraded {
+      background: rgba(212, 152, 56, 0.08) !important;
+      border: 1px solid rgba(212, 152, 56, 0.15) !important;
+      color: #d49838 !important;
     }
 
     /* ── Tables ────────────────────────────────────────── */
