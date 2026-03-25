@@ -1,0 +1,30 @@
+owner: MrPenn
+repo: scenecheck-status
+user-agent: MrPenn
+
+sites:
+  - name: API
+    url: https://api.scenecheck.app/api/health
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 5000
+
+  - name: Website
+    url: https://scenecheck.app
+    expectedStatusCodes:
+      - 200
+
+  - name: Admin Panel
+    url: https://admin.scenecheck.app
+    expectedStatusCodes:
+      - 200
+
+status-website:
+  cname: status.scenecheck.app
+  name: SceneCheck Status
+  theme: light
+  navbar:
+    - title: Status
+      href: /
+    - title: SceneCheck
+      href: https://scenecheck.app
