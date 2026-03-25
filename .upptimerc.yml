@@ -22,9 +22,244 @@ sites:
 status-website:
   cname: status.scenecheck.app
   name: SceneCheck Status
-  theme: light
+  theme: dark
+  favicon: https://scenecheck.app/favicon.ico
   navbar:
     - title: Status
       href: /
     - title: SceneCheck
       href: https://scenecheck.app
+  css: |
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+
+    :root {
+      --brand-bg-deep: #0a0908;
+      --brand-bg: #141210;
+      --brand-bg-elevated: #1e1c19;
+      --brand-cream: #e2dcd0;
+      --brand-gold: #a89882;
+      --brand-purple: #7c6af7;
+      --brand-purple-hover: #6b59e6;
+      --brand-green: #3dba78;
+      --brand-red: #d95555;
+      --brand-yellow: #d49838;
+      --brand-border: rgba(226, 220, 208, 0.1);
+      --brand-border-subtle: rgba(226, 220, 208, 0.06);
+      --brand-text-secondary: rgba(226, 220, 208, 0.6);
+      --brand-text-muted: rgba(226, 220, 208, 0.4);
+    }
+
+    body, html {
+      background: var(--brand-bg-deep) !important;
+      color: var(--brand-cream) !important;
+      font-family: 'DM Sans', -apple-system, sans-serif !important;
+    }
+
+    /* Navbar */
+    nav, .navbar, header {
+      background: var(--brand-bg) !important;
+      border-bottom: 1px solid var(--brand-border) !important;
+      backdrop-filter: blur(12px);
+    }
+
+    nav a, .navbar a, header a {
+      color: var(--brand-cream) !important;
+      font-family: 'DM Sans', sans-serif !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.3px;
+      transition: color 0.15s ease;
+    }
+
+    nav a:hover, .navbar a:hover, header a:hover {
+      color: var(--brand-purple) !important;
+    }
+
+    /* Site title */
+    .site-name, h1 {
+      font-family: 'Outfit', sans-serif !important;
+      font-weight: 700 !important;
+      color: var(--brand-cream) !important;
+      letter-spacing: -0.5px;
+    }
+
+    h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', sans-serif !important;
+      font-weight: 600 !important;
+      color: var(--brand-cream) !important;
+    }
+
+    /* Cards and containers */
+    .card, article, section, .incident, .incidents {
+      background: var(--brand-bg-elevated) !important;
+      border: 1px solid var(--brand-border) !important;
+      border-radius: 16px !important;
+    }
+
+    /* Status indicators */
+    .status-up, .up, [class*="up"] {
+      color: var(--brand-green) !important;
+    }
+
+    .status-down, .down, [class*="down"] {
+      color: var(--brand-red) !important;
+    }
+
+    .status-degraded, .degraded, [class*="degraded"] {
+      color: var(--brand-yellow) !important;
+    }
+
+    /* Links */
+    a {
+      color: var(--brand-purple) !important;
+      transition: color 0.15s ease;
+    }
+
+    a:hover {
+      color: var(--brand-purple-hover) !important;
+    }
+
+    /* Buttons */
+    button, .button, [role="button"] {
+      background: var(--brand-purple) !important;
+      color: #fff !important;
+      border: none !important;
+      border-radius: 12px !important;
+      font-family: 'DM Sans', sans-serif !important;
+      font-weight: 600 !important;
+      transition: background 0.15s ease;
+    }
+
+    button:hover, .button:hover, [role="button"]:hover {
+      background: var(--brand-purple-hover) !important;
+    }
+
+    /* Tables */
+    table {
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+    }
+
+    th {
+      background: var(--brand-bg) !important;
+      color: var(--brand-gold) !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 11px !important;
+      font-weight: 400 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 1.5px !important;
+      border-bottom: 1px solid var(--brand-border) !important;
+    }
+
+    td {
+      background: var(--brand-bg-elevated) !important;
+      color: var(--brand-cream) !important;
+      border-bottom: 1px solid var(--brand-border-subtle) !important;
+    }
+
+    tr:hover td {
+      background: rgba(226, 220, 208, 0.04) !important;
+    }
+
+    /* Monospace elements */
+    code, pre, .mono {
+      font-family: 'JetBrains Mono', monospace !important;
+      color: var(--brand-gold) !important;
+    }
+
+    /* Response time badges */
+    .response-time, [class*="response"] {
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 13px !important;
+    }
+
+    /* Uptime percentage */
+    .uptime, [class*="uptime"] {
+      font-family: 'JetBrains Mono', monospace !important;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--brand-bg-deep) !important;
+      border-top: 1px solid var(--brand-border) !important;
+      color: var(--brand-text-muted) !important;
+    }
+
+    footer a {
+      color: var(--brand-text-secondary) !important;
+    }
+
+    /* Graph containers */
+    .graph, [class*="graph"], svg {
+      border-radius: 12px !important;
+    }
+
+    /* Incident timeline */
+    .incident-title {
+      font-family: 'Outfit', sans-serif !important;
+      font-weight: 600 !important;
+    }
+
+    .incident-body, .incident-date {
+      color: var(--brand-text-secondary) !important;
+      font-family: 'DM Sans', sans-serif !important;
+    }
+
+    /* Selection color */
+    ::selection {
+      background: rgba(124, 106, 247, 0.3);
+      color: var(--brand-cream);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--brand-bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(226, 220, 208, 0.15);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(226, 220, 208, 0.25);
+    }
+
+    /* Overall page wrapper */
+    main, .main, #sapper, .container {
+      background: var(--brand-bg-deep) !important;
+    }
+
+    /* Input fields */
+    input, select, textarea {
+      background: rgba(226, 220, 208, 0.06) !important;
+      border: 1px solid var(--brand-border) !important;
+      border-radius: 12px !important;
+      color: var(--brand-cream) !important;
+      font-family: 'DM Sans', sans-serif !important;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(124, 106, 247, 0.6) !important;
+      outline: none !important;
+    }
+
+    /* Badges / pills */
+    .badge, [class*="badge"], .tag, [class*="tag"] {
+      border-radius: 999px !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 10px !important;
+      font-weight: 400 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.5px !important;
+    }
+
+    /* Smooth transitions */
+    *, *::before, *::after {
+      transition-property: background-color, border-color, color;
+      transition-duration: 0.15s;
+      transition-timing-function: ease;
+    }
