@@ -4,10 +4,10 @@
     "url": "https://api.scenecheck.app/api/health",
     "icon": "https://icons.duckduckgo.com/ip3/api.scenecheck.app.ico",
     "slug": "api",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
+    "uptimeDay": "99.96%",
+    "uptimeWeek": "99.99%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 348,
@@ -15,14 +15,16 @@
     "timeWeek": 259,
     "timeMonth": 342,
     "timeYear": 348,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2026-05-19": 1
+    }
   },
   {
     "name": "Website",
     "url": "https://scenecheck.app",
     "icon": "https://icons.duckduckgo.com/ip3/scenecheck.app.ico",
     "slug": "website",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
