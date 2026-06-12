@@ -1,7 +1,7 @@
 url: https://api.scenecheck.app/api/health
 status: degraded
 code: 502
-responseTime: 15627
-lastUpdated: 2026-06-11T23:33:45.503Z
+responseTime: 15610
+lastUpdated: 2026-06-12T23:33:07.143Z
 startTime: 2026-03-25T04:05:23.113Z
 generator: Upptime <https://github.com/upptime/upptime>
